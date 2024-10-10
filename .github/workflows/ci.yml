@@ -25,7 +25,7 @@ jobs:
 
     - name: Run tests
       run: |
-        python -m unittest discover tests  # Use 'tests' as your test directory
+        python -m unittest discover tests
 
     - name: Increment version
       run: |
@@ -36,4 +36,9 @@ jobs:
         git config --global user.email "github-actions@github.com"
         git add version.txt
         git commit -m "Atualiza para versão $new_version"
-        git push
+
+    - name: Push changes
+      env:
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      run: |
+        git push https://x-access-token:${GH_TOKEN}@github.com/RodrigoNogC/ci-cd-python-exercise.git
