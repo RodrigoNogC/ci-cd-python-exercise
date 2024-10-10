@@ -25,7 +25,7 @@ jobs:
 
     - name: Run tests
       run: |
-        python -m unittest discover my_tests  # replace 'my_tests' with the correct folder if different
+        python -m unittest discover tests  # Use 'tests' as your test directory
 
     - name: Increment version
       run: |
