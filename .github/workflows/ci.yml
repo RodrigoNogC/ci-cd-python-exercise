@@ -9,6 +9,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions: 
+      contents: write  # Add this line
 
     steps:
     - name: Checkout code
@@ -38,10 +40,7 @@ jobs:
         git commit -m "Atualiza para versão $new_version"
 
     - name: Push changes
-      
       env:
-            GH_TOKEN: ${{ secrets.GH_TOKEN }}
-      
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
       run: |
         git push https://x-access-token:${GH_TOKEN}@github.com/RodrigoNogC/ci-cd-python-exercise.git
-
