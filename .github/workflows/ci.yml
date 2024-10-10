@@ -39,6 +39,6 @@ jobs:
 
     - name: Push changes
       env:
-        GH_TOKEN: ${{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}}
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
       run: |
         git push https://x-access-token:${GH_TOKEN}@github.com/RodrigoNogC/ci-cd-python-exercise.git
